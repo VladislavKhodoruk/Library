@@ -1,0 +1,110 @@
+@import '../../scss/vars/variables.scss';
+@import '../../scss/mixins.scss';
+
+.card-table {
+  @include column;
+  justify-content: space-between;
+  align-items: center;
+  height: 470px;
+  padding: 0.6rem 0.6rem 1.1rem 0.6rem;
+  border-radius: 0.7rem;
+  background: $white;
+  box-shadow: $grey-shadow;
+
+  .top {
+    @include column;
+    gap: 1.1rem;
+    width: 100%;
+
+    img {
+      max-width: 12.4rem;
+      min-width: 12.4rem;
+      max-height: 17.3rem;
+      min-height: 17.3rem;
+      border-radius: 0.7rem;
+      margin: 0 auto;
+      border: 1px solid $grey;
+      border-radius: 10px;
+    }
+  }
+
+  .middle {
+    width: 100%;
+    font: $font-xl;
+    margin: 0;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .bottom {
+    @include column;
+    justify-content: space-between;
+    height: 6.2rem;
+    width: 100%;
+    p {
+      color: $light-black;
+    }
+
+    .button {
+      margin: 0 auto;
+    }
+  }
+}
+.card-list {
+  display: flex;
+  gap: 1.1rem;
+  width: 100%;
+  padding: 1.7rem 1.7rem 1.7rem 1.1rem;
+  border-radius: 0.85rem;
+  background: $white;
+  box-shadow: $grey-shadow;
+
+  img {
+    max-width: 8.57rem;
+    min-width: 8.57rem;
+    max-height: 12.1rem;
+    min-height: 12.1rem;
+    border: 1px solid $grey;
+  }
+
+  .right-part {
+    @include column;
+    width: 100%;
+    gap: 1.7rem;
+
+    .top {
+      .title {
+        font: $font-xxl;
+        line-height: 2.3rem;
+        margin-bottom: 0.6rem;
+        -webkit-line-clamp: 4;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .author {
+        font: $font-l;
+        line-height: 1.7rem;
+        color: $light-black;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        max-width: 12.4rem;
+        min-width: 12.4rem;
+      }
+    }
+  }
+}
