@@ -63,7 +63,7 @@ export const BookPage = () => {
 
     return (
         bookLoadingStatus === LoadingStatus.loading ?
-            <Loader /> :
+            <div data-test-id='loader'><Loader /></div> :
             bookLoadingStatus === LoadingStatus.error ?
                 <div data-test-id='error'>
                     <ToastContainer closeButton={closeButton}

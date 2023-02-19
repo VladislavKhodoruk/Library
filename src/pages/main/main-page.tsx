@@ -61,7 +61,7 @@ export const MainPage = () => {
     return (
         <div className='main'>
             {allBooksLoadingStatus === LoadingStatus.loading || categoriesLoadingStatus === LoadingStatus.loading ?
-                <Loader /> :
+                <div data-test-id='loader'><Loader /></div> :
                 <div className='main-page'>
                     <div data-test-id='error'>
                         <ToastContainer closeButton={closeButton}
