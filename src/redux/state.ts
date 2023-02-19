@@ -1,6 +1,6 @@
 import bookImage from '../assets/bookImage.png';
 
-export const store = {
+export const storeOld = {
   booksData: [
     {
       genreName: 'business',

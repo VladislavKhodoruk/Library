@@ -1,6 +1,10 @@
 @import '../../scss/vars/variables.scss';
 @import '../../scss/mixins.scss';
 
+.main {
+  flex: 1 0 auto;
+}
+
 .main-page {
   .topbar {
     display: flex;
@@ -58,11 +62,6 @@
             color: $grey;
           }
         }
-
-        img {
-          max-width: 1.1rem;
-          min-width: 1.1rem;
-        }
       }
 
       .sort-button {
@@ -81,8 +80,8 @@
       }
 
       .icon {
-        height: 16px;
-        width: 16px;
+        height: 1.1rem;
+        width: 1.1rem;
       }
     }
 

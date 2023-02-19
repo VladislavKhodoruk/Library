@@ -1,23 +1,44 @@
 import classnames from 'classnames';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Genres } from './enums';
-import { ReactComponent as ArrowIcon } from '../../assets/arrowIcon.svg';
 import './sidebar.scss';
+import { fetchCategories } from 'store/sidebar-slice';
+import { useAppDispatch, useAppSelector } from 'entities/hooks';
+import { Category } from 'entities/interfaces';
+import { ReactComponent as ArrowIcon } from '../../assets/arrowIcon.svg';
 
-export const Sidebar = (props: { store: any, isBurger?: boolean }) => {
+export const Sidebar = (props: { isBurger?: boolean }) => {
     const [menuIsOpened, setMenuView] = useState(true);
+    const dispatch = useAppDispatch();
+    useEffect(() => {
+        dispatch(fetchCategories());
+    }, [dispatch]);
 
+    const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        if (event.currentTarget.classList.contains('active')) {
+            setMenuView(!menuIsOpened);
+            event.preventDefault();
+        }
+        else
+            setMenuView(false);
+    }
+
+    const categories: Category[] = useAppSelector((state) => state.sidebar.categories);
     return (
         <div className='sidebar'>
             <div className="sidebar-item">
                 <NavLink data-test-id={props.isBurger ? 'burger-showcase' : 'navigation-showcase'} id='sidebar-arrow' className={({ isActive }) =>
                     `docs-link ' ${(isActive ? 'active' : 'non-active')}`
-                } onClick={() => { setMenuView(!menuIsOpened) }} to='books'><div><p>Витрина книг</p><ArrowIcon className={classnames('icon', { 'icon-reversed': menuIsOpened })} /></div><div className='hr' /></NavLink>
-                <ul className={menuIsOpened ? 'show-menu' : ''}>
-                    <li><NavLink onClick={() => { setMenuView(false) }} data-test-id={props.isBurger ? 'burger-books' : 'navigation-books'} to='books/all'><span>Все книги</span></NavLink></li>
-                    {props.store.booksData.map((el: any, index: number) => <li><NavLink onClick={() => { setMenuView(false) }} to={`books/${el.genreName}`}><span>{Genres[el.genreName as keyof typeof Genres]}</span><span>{el.books.length}</span></NavLink></li>)}
-                </ul>
+                } onClick={(event) => {
+                    handleClick(event)
+                }} to='books'><div><p>Витрина книг</p><ArrowIcon className={classnames('icon', { 'icon-reversed': menuIsOpened }, { 'hide': !categories.length })} /></div><div className='hr' /></NavLink>
+                {categories.length ?
+                    <ul className={classnames('ul', { 'show-menu': menuIsOpened })}>
+                        <li><NavLink data-test-id={props.isBurger ? 'burger-books' : 'navigation-books'} to='books/all'><span>Все книги</span></NavLink></li>
+                        {categories.map((category: Category) => <li key={category.id}><NavLink to={`books/${category.path}`}><span>{category.name}</span><span>22</span></NavLink></li>)}
+                    </ul>
+                    :
+                    null}
             </div>
             <div className="sidebar-item">
                 <NavLink data-test-id={props.isBurger ? 'burger-terms' : 'navigation-terms'} to='../terms' className='docs-link' onClick={() => { setMenuView(false) }}><p>Правила пользования</p><div className='hr' /></NavLink>

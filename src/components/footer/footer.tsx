@@ -1,8 +1,9 @@
-import './footer.scss';
 import facebookIcon from '../../assets/facebookIcon.svg';
 import instagramIcon from '../../assets/instagramIcon.svg';
-import vkIcon from '../../assets/vkIcon.svg';
 import linkedinIcon from '../../assets/linkedinIcon.svg';
+import vkIcon from '../../assets/vkIcon.svg';
+
+import './footer.scss';
 
 
 export const Footer = () => (

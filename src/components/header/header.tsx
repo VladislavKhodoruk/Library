@@ -1,18 +1,20 @@
-import ReactDOM from 'react-dom';
+import { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { SyntheticEvent, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
-import './header.scss';
 import { Sidebar } from 'components/sidebar';
-import { store } from 'redux/store';
-import { HeaderProps } from './interfaces';
+
 import logo from '../../assets/logo.svg';
+
+import { HeaderProps } from './interfaces';
+
+import './header.scss';
 
 export const Header = (props: HeaderProps) => {
     const [isMenuOpen, toggleMenu] = useState(false);
 
     const menu = useRef<HTMLInputElement>(null);
     const button = useRef<HTMLButtonElement>(null);
+
     document.addEventListener('click', (e: any) => {
         if (!menu?.current?.contains(e.target) && !button?.current?.contains(e.target)) {
             toggleMenu(false);
@@ -48,7 +50,7 @@ export const Header = (props: HeaderProps) => {
             </div>
             <div data-test-id='burger-navigation' className='nav-menu' ref={menu}>
                 <div className='nav-menu-container'>
-                    <Sidebar store={store} isBurger={true} />
+                    <Sidebar isBurger={true} />
                 </div>
                 <div className='hr' />
                 <div className='nav-menu-container bottom-buttons'>

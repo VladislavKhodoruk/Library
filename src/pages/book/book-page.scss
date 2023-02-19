@@ -211,6 +211,11 @@
         gap: 1.7rem;
         margin-bottom: 4.43rem;
 
+        p {
+          font: $font-m;
+          line-height: 1.3rem;
+        }
+
         .smooth {
           display: none;
 
@@ -302,10 +307,6 @@
         @include column;
         gap: 3rem;
         margin-bottom: 1.85rem;
-      }
-
-      .comments.hide {
-        display: none;
       }
 
       .button {

@@ -1,11 +1,13 @@
-import './layout-main.scss';
 import { Outlet } from 'react-router-dom';
+
 import { Sidebar } from '../../components/sidebar';
 
+import './layout-main.scss';
 
-export const LayoutMain = (props: { store: any }) => (
+
+export const LayoutMain = () => (
     <div className='layout-main'>
-        <Sidebar store={props.store} />
+        <Sidebar />
         <div className='outlet'><Outlet /></div>
     </div>
 );

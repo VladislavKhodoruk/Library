@@ -1,7 +1,9 @@
 import { Outlet } from 'react-router-dom';
+
 import { defaultUser } from '../../mockdata';
 import { Footer } from '../footer';
 import { Header } from '../header';
+
 import './layout.scss';
 
 export const Layout = () => (

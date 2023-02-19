@@ -1,7 +1,13 @@
 @import './scss/mixins.scss';
+@import './scss/vars/variables.scss';
 
 html {
   font-size: 14px;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
 }
 
 body {
@@ -93,4 +99,63 @@ select {
 .block-scroll {
   height: 100vh;
   overflow: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+.Toastify__toast-container {
+  max-width: 1110px;
+  width: 100%;
+  top: 65px;
+  padding: 0;
+  .Toastify__toast {
+    background-color: $error-background;
+    border: 1.5px solid $error-color;
+    border-radius: 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.7rem 2.3rem;
+
+    .Toastify__progress-bar {
+      display: none;
+    }
+
+    button {
+      border: none;
+      outline: none;
+      background: none;
+      display: flex;
+      cursor: pointer;
+
+      svg {
+        width: 1.7rem;
+        height: 1.7rem;
+        * {
+          fill: $black;
+        }
+      }
+    }
+
+    &-body {
+      display: flex;
+      align-items: center;
+      font: $terms-font;
+      color: $black;
+      line-height: 1.7rem;
+      gap: 1.7rem;
+
+      .Toastify__toast-icon {
+        width: 1.7rem;
+        height: 1.7rem;
+      }
+      svg {
+        width: 1.7rem;
+        height: 1.7rem;
+        fill: $error-color;
+      }
+    }
+  }
 }
