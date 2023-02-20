@@ -21,16 +21,6 @@ export const Header = (props: HeaderProps) => {
         }
     });
 
-    // useEffect(() => {
-    //     const root = document.getElementById('root')!;
-    //     if (isMenuOpen) {
-    //         root.classList.add('block-scroll');
-    //     }
-    //     else {
-    //         root.classList.remove('block-scroll');
-    //     }
-    // }, [isMenuOpen]);
-
     return (
         <div className={classNames('header', { 'visible': isMenuOpen })}>
             <NavLink className='logo' to='books/all'><img src={logo} alt='Logo' /></NavLink>

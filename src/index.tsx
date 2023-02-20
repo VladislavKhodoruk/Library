@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { storeOld } from 'redux/state';
-import { Test } from 'pages/test';
 
 import { Layout } from './components/layout';
 import { BookPage } from './pages/book';
@@ -30,7 +28,6 @@ root.render(
                             <Route path='/books/:genreName' element={<MainPage />} />
                             <Route path='/terms' element={<TermsPage page='terms' />} />
                             <Route path='/pact' element={<TermsPage page='contract' />} />
-                            <Route path='/test' element={<Test />} />
                         </Route>
                         <Route path='/books/:genreName/:bookId' element={<BookPage />} />
                     </Route>

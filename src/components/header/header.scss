@@ -3,9 +3,10 @@
 
 .header {
   @include space-between;
-  margin: 2.3rem 0 4.4rem 0;
+  margin: 2.3rem auto 4.4rem auto;
   align-items: center;
   position: relative;
+  width: 79.3rem;
 
   .menu-button {
     transition: 0.3s;

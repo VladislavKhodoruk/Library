@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Card as CardInterface } from 'entities/interfaces';
+import { host } from 'entities/constants';
 
 import defaultImage from '../../assets/defaultImage.png'
 import { Button } from '../commons/button';
@@ -14,7 +15,7 @@ export const Card = (props: { card: CardInterface, viewMode: string }) => (
         {props.viewMode === ViewModes.Table ?
             <div className='card-table' data-test-id='card'>
                 <div className='top'>
-                    <img src={props.card.image ? `https://strapi.cleverland.by${props.card.image.url}` : defaultImage} alt='Book' />
+                    <img src={props.card.image ? `${host}${props.card.image.url}` : defaultImage} alt='Book' />
                     <Rating rating={props.card.rating} isSmooth={false} showWhenNull={false} />
                 </div>
                 <p className='middle'>{props.card.title}</p>
@@ -24,7 +25,7 @@ export const Card = (props: { card: CardInterface, viewMode: string }) => (
                 </div>
             </div> :
             <div className='card-list'>
-                <img src={props.card.image ? `https://strapi.cleverland.by${props.card.image}` : defaultImage} alt='Book' />
+                <img src={props.card.image ? `${host}${props.card.image}` : defaultImage} alt='Book' />
                 <div className='right-part'>
                     <div className='top'>
                         <p className='title'>{props.card.title}</p>

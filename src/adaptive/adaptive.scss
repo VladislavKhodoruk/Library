@@ -2,11 +2,12 @@
 @import '../scss/vars/variables.scss';
 
 @media (max-width: 992px) {
-  .layout {
+  .layout-main {
     width: 45.7rem;
   }
 
   .header {
+    width: 45.7rem;
     .logo {
       display: none;
     }
@@ -54,158 +55,168 @@
     }
   }
 
-  .book-page {
-    .book {
-      .top {
-        grid-template-areas:
-          'A B'
-          'C C';
-        grid-template-columns: 9.7rem;
-        grid-column-gap: 2.3rem;
+  .book-page-wrapper {
+    .breadcrumbs-wrapper {
+      margin-bottom: 3.4rem;
 
-        .cover {
-          max-width: 9.8rem;
-          min-width: 9.8rem;
+      .breadcrumbs {
+        width: 45.7rem;
+      }
+    }
 
-          .swiper {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
+    .book-page {
+      width: 45.7rem;
 
-            &-top {
-              .swiper-pagination {
-                display: flex;
-                position: absolute;
-                top: 14.85rem;
-                width: 100%;
+      .book {
+        .top {
+          grid-template-areas:
+            'A B'
+            'C C';
+          grid-template-columns: 9.7rem;
+          grid-column-gap: 2.3rem;
+
+          .cover {
+            max-width: 9.8rem;
+            min-width: 9.8rem;
+
+            .swiper {
+              display: flex;
+              justify-content: center;
+              gap: 1rem;
+
+              &-top {
+                .swiper-pagination {
+                  display: flex;
+                  position: absolute;
+                  top: 14.85rem;
+                  width: 100%;
+                }
+                .swiper-pagination-bullet {
+                  width: 0.5rem;
+                  height: 0.5rem;
+                  display: inline-block;
+                  border-radius: 50%;
+                  background: $button-booked-border;
+                  transition: 0.4s;
+                }
+
+                .swiper-pagination-bullet-active {
+                  width: 0.57rem;
+                  height: 0.57rem;
+                  background: $black;
+                }
               }
-              .swiper-pagination-bullet {
-                width: 0.5rem;
-                height: 0.5rem;
-                display: inline-block;
-                border-radius: 50%;
-                background: $button-booked-border;
-                transition: 0.4s;
-              }
 
-              .swiper-pagination-bullet-active {
-                width: 0.57rem;
-                height: 0.57rem;
-                background: $black;
+              &-bottom {
+                display: none;
               }
             }
+          }
 
-            &-bottom {
-              display: none;
+          .hr {
+            background: $button-occupied-background;
+          }
+
+          img {
+            max-width: 9.7rem;
+            min-width: 9.7rem;
+            max-height: 14.1rem;
+            min-height: 14.1rem;
+            margin-bottom: 3.4rem;
+          }
+
+          .title {
+            margin-bottom: 3.4rem;
+
+            h1 {
+              font: $font-xxxl;
+              line-height: 2.14rem;
+              margin-bottom: 2.3rem;
+            }
+
+            .author {
+              font: $font-xl;
+              line-height: 1.3rem;
+              margin-bottom: 2.3rem;
+            }
+
+            button {
+              max-width: 21.85rem;
+              min-width: 21.85rem;
+            }
+          }
+
+          .description {
+            h2 {
+              font: $terms-font;
+              line-height: 1.7rem;
             }
           }
         }
 
-        .hr {
-          background: $button-occupied-background;
-        }
-
-        img {
-          max-width: 9.7rem;
-          min-width: 9.7rem;
-          max-height: 14.1rem;
-          min-height: 14.1rem;
-          margin-bottom: 3.4rem;
-        }
-
-        .line {
-          height: 6.3rem;
-          font: $font-l;
-          margin-bottom: 3.4rem;
-        }
-
-        .title {
-          margin-bottom: 3.4rem;
-
-          h1 {
-            font: $font-xxxl;
-            line-height: 2.14rem;
-            margin-bottom: 2.3rem;
+        .middle {
+          .hr {
+            background: $button-occupied-background;
           }
 
-          .author {
-            font: $font-xl;
-            line-height: 1.3rem;
-            margin-bottom: 2.3rem;
-          }
-
-          button {
-            max-width: 21.85rem;
-            min-width: 21.85rem;
-          }
-        }
-
-        .description {
-          h2 {
+          p {
             font: $terms-font;
-            line-height: 1.7rem;
           }
-        }
-      }
 
-      .middle {
-        .hr {
-          background: $button-occupied-background;
-        }
+          &-rating {
+            margin-bottom: 3.7rem;
+          }
 
-        p {
-          font: $terms-font;
-        }
+          .table {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
 
-        &-rating {
-          margin-bottom: 3.7rem;
-        }
+            table {
+              tr {
+                td {
+                  line-height: 1.3rem;
+                }
 
-        .table {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
+                td:first-child {
+                  font: $font-xl;
+                  min-width: 9.85rem;
+                }
 
-          table {
-            tr {
-              td {
-                line-height: 1.3rem;
-              }
-
-              td:first-child {
-                font: $font-xl;
-                min-width: 9.85rem;
-              }
-
-              td:last-child {
-                font: $font-m;
+                td:last-child {
+                  font: $font-m;
+                }
               }
             }
-          }
 
-          table:first-child {
-            width: 21.8rem;
-          }
+            table:first-child {
+              width: 21.8rem;
+            }
 
-          table:last-child {
-            width: 21.8rem;
+            table:last-child {
+              width: 21.8rem;
+            }
           }
         }
-      }
 
-      .bottom {
-        > p {
-          font: $terms-font;
-        }
+        .bottom {
+          > p {
+            font: $terms-font;
+          }
 
-        .button {
-          button {
-            max-width: 100%;
-            min-width: 100%;
+          .button {
+            button {
+              max-width: 100%;
+              min-width: 100%;
+            }
           }
         }
       }
     }
+  }
+
+  .footer {
+    width: 45.7rem;
   }
 
   .loader-bg {
@@ -251,11 +262,13 @@
 }
 
 @media (max-width: 576px) {
-  .layout {
+  .layout-main {
     width: 90%;
   }
 
   .header {
+    width: 90%;
+
     &-right-part {
       h1 {
         font: $small-header-font;
@@ -469,168 +482,181 @@
     }
   }
 
-  .book-page {
-    .hr {
-      width: 100%;
-      background: $button-occupied-background;
-      margin: 0.6rem 0;
+  .book-page-wrapper {
+    .breadcrumbs-wrapper {
+      margin-bottom: 1.4rem;
+      font: $breadcrumbs-small;
+
+      .breadcrumbs {
+        width: 90%;
+      }
     }
 
-    .book {
-      .top {
-        grid-template-areas:
-          'A A'
-          'B B'
-          'C C';
+    .book-page {
+      width: 90%;
 
-        .cover {
-          max-width: none;
-          min-width: none;
+      .hr {
+        width: 100%;
+        background: $button-occupied-background;
+        margin: 0.6rem 0;
+      }
 
-          .swiper {
-            gap: 1rem;
+      .book {
+        .top {
+          grid-template-areas:
+            'A A'
+            'B B'
+            'C C';
 
-            &-wrapper {
-              margin-bottom: 2rem;
-            }
+          .cover {
+            max-width: none;
+            min-width: none;
 
-            &-top {
-              .swiper-pagination {
-                display: flex;
-                position: absolute;
-                top: 19.7rem;
-                width: 13.4rem;
+            .swiper {
+              gap: 1rem;
+
+              &-wrapper {
+                margin-bottom: 2rem;
+              }
+
+              &-top {
+                .swiper-pagination {
+                  display: flex;
+                  position: absolute;
+                  top: 19.7rem;
+                  width: 13.4rem;
+                }
+              }
+
+              &-bottom {
+                display: none;
               }
             }
+          }
 
-            &-bottom {
+          img {
+            grid-area: A;
+            max-width: 13.4rem;
+            min-width: 13.4rem;
+            max-height: 18.57rem;
+            min-height: 18.57rem;
+            margin: 0 auto 1.1rem auto;
+          }
+
+          .title {
+            h1 {
+              font: $small-header-font;
+              line-height: 2rem;
+              margin-bottom: 3rem;
+            }
+
+            .author {
+              font: $font-xxs;
+              line-height: 1.3rem;
+              margin-bottom: 3rem;
+            }
+
+            button {
+              height: 2.85rem;
+              max-width: 100%;
+              min-width: 100%;
+              font: $font-xs;
+              line-height: 1.3rem;
+              margin-bottom: 1.4rem;
+            }
+          }
+
+          .description {
+            h2 {
+              font: $terms-font;
+              line-height: 1.7rem;
+            }
+          }
+        }
+
+        .middle {
+          p {
+            font: $terms-font;
+          }
+
+          &-rating {
+            margin-bottom: 3.7rem;
+
+            .rating {
+              min-width: 15.57rem;
+            }
+
+            .sharp {
               display: none;
             }
-          }
-        }
 
-        img {
-          grid-area: A;
-          max-width: 13.4rem;
-          min-width: 13.4rem;
-          max-height: 18.57rem;
-          min-height: 18.57rem;
-          margin: 0 auto 1.1rem auto;
-        }
-
-        .title {
-          h1 {
-            font: $small-header-font;
-            line-height: 2rem;
-            margin-bottom: 3rem;
-          }
-
-          .author {
-            font: $font-xxs;
-            line-height: 1.3rem;
-            margin-bottom: 3rem;
-          }
-
-          button {
-            height: 2.85rem;
-            max-width: 100%;
-            min-width: 100%;
-            font: $font-xs;
-            line-height: 1.3rem;
-            margin-bottom: 1.4rem;
-          }
-        }
-
-        .description {
-          h2 {
-            font: $terms-font;
-            line-height: 1.7rem;
-          }
-        }
-      }
-
-      .middle {
-        p {
-          font: $terms-font;
-        }
-
-        &-rating {
-          margin-bottom: 3.7rem;
-
-          .rating {
-            min-width: 15.57rem;
-          }
-
-          .sharp {
-            display: none;
-          }
-
-          .smooth {
-            display: block;
-          }
-
-          p {
-            font: $small-header-font;
-            line-height: 2rem;
-          }
-        }
-
-        .table {
-          flex-direction: column;
-          width: 100%;
-
-          table {
-            tr {
-              td {
-                line-height: 1.3rem;
-              }
-
-              td:first-child {
-                font: $font-xl;
-                min-width: 9.3rem;
-              }
-
-              td:last-child {
-                font: $font-m;
-              }
+            .smooth {
+              display: block;
             }
-          }
 
-          table:first-child {
-            width: 100%;
-          }
-
-          table:last-child {
-            width: 100%;
-          }
-        }
-      }
-
-      .bottom {
-        > p {
-          font: $terms-font;
-        }
-
-        .button {
-          margin-bottom: 1.4rem;
-
-          button {
-            height: 2.85rem;
-            max-width: 100%;
-            min-width: 100%;
-            font: $font-xs;
-          }
-        }
-
-        .comments {
-          .comment {
             p {
-              font: $terms-font-mobile;
+              font: $small-header-font;
+              line-height: 2rem;
+            }
+          }
+
+          .table {
+            flex-direction: column;
+            width: 100%;
+
+            table {
+              tr {
+                td {
+                  line-height: 1.3rem;
+                }
+
+                td:first-child {
+                  font: $font-xl;
+                  min-width: 9.3rem;
+                }
+
+                td:last-child {
+                  font: $font-m;
+                }
+              }
             }
 
-            &-header .text {
-              flex-direction: column;
-              gap: 0.2rem;
+            table:first-child {
+              width: 100%;
+            }
+
+            table:last-child {
+              width: 100%;
+            }
+          }
+        }
+
+        .bottom {
+          > p {
+            font: $terms-font;
+          }
+
+          .button {
+            margin-bottom: 1.4rem;
+
+            button {
+              height: 2.85rem;
+              max-width: 100%;
+              min-width: 100%;
+              font: $font-xs;
+            }
+          }
+
+          .comments {
+            .comment {
+              p {
+                font: $terms-font-mobile;
+              }
+
+              &-header .text {
+                flex-direction: column;
+                gap: 0.2rem;
+              }
             }
           }
         }
@@ -642,6 +668,7 @@
     flex-direction: column;
     align-items: center;
     height: 7.2rem;
+    width: 90%;
 
     p {
       max-width: 16rem;
