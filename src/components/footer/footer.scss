@@ -1,0 +1,21 @@
+@import '../../scss/vars/variables.scss';
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid $button-booked-border;
+  flex: 0 0 auto;
+  width: 79.3rem;
+  margin: 0 auto;
+  p {
+    font: $font-l;
+    color: $black;
+  }
+
+  div {
+    display: flex;
+    gap: 1.7rem;
+  }
+}

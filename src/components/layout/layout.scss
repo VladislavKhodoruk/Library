@@ -1,0 +1,8 @@
+@import '../../scss/vars/variables.scss';
+@import '../../scss/mixins.scss';
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
