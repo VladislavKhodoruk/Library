@@ -152,7 +152,7 @@ export const BookPage = () => {
                                         : null}
                                 </div>
                                 <div className='hr' />
-                                <div className={classNames('comments', { 'hide': !commentsView })}>{$book?.comments?.map((comment: Comment) => <CommentComponent date={comment.createdAt} author={`${comment.user.firstName} ${comment.user.lastName}`} rating={comment.rating} text={comment.text!} />)}</div>
+                                <div className={classNames('comments', { 'comments-hide': !commentsView })}>{$book?.comments?.map((comment: Comment) => <CommentComponent date={comment.createdAt} author={`${comment.user.firstName} ${comment.user.lastName}`} rating={comment.rating} text={comment.text!} />)}</div>
                                 <div data-test-id='button-rating' className='button'>
                                     <button type='button'>Оценить книгу</button>
                                 </div>
