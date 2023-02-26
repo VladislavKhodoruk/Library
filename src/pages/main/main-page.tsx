@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import classNames from 'classnames';
 import { Card as CardComponent } from 'components/card';
@@ -115,7 +115,7 @@ export const MainPage = () => {
                                             placeholder='Поиск книги или автора…'
                                             value={inputValue}
                                             onChange={(event) => { setInputValue(event.target.value) }}
-                                            onClick={() => { setInputIsNotDirty(false) }}
+                                            onFocus={() => { setInputIsNotDirty(false) }}
                                             onBlur={() => { setInputIsNotDirty(true) }}
                                         />
                                         <button
