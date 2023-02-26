@@ -1,32 +1,29 @@
 @import '../../../scss/vars/variables.scss';
-
 .button {
   button {
-    height: 2.85rem;
-    max-width: 11.9rem;
-    min-width: 11.9rem;
-    border: none;
-    border-radius: 5rem;
-    outline: none;
-    background: $orange;
-    color: $white;
-    font: $font-xs;
-    letter-spacing: 0.2px;
-    text-transform: uppercase;
-    cursor: pointer;
+    height:2.85rem;
+    max-width:11.9rem;
+    min-width:11.9rem;
+    border:none;
+    border-radius:5rem;
+    outline:none;
+    background:$orange;
+    color:$white;
+    font:$font-xs;
+    letter-spacing:0.2px;
+    text-transform:uppercase;
+    cursor:pointer;
   }
-
   button.booked {
-    border: 1px solid $button-booked-border;
-    background: $white;
-    color: $black;
-    cursor: auto;
+    border:1px solid $button-booked-border;
+    background:$white;
+    color:$black;
+    cursor:auto;
   }
-
   button.occupied {
-    border: 1px solid $button-booked-border;
-    background: $button-occupied-background;
-    color: $grey;
-    cursor: auto;
+    border:1px solid $button-booked-border;
+    background:$button-occupied-background;
+    color:$grey;
+    cursor:auto;
   }
 }

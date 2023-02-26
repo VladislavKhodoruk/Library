@@ -1,19 +1,18 @@
 @import '../../scss/vars/variables.scss';
 @import '../../scss/mixins.scss';
 .loader-bg {
-  height: 100vh;
-  width: 100vw;
-  display: inline-block;
-  background: $loader-background;
-  backdrop-filter: blur(10px);
-  z-index: 100;
-  top: 0;
-  left: 0;
+  height:100vh;
+  width:100vw;
+  display:inline-block;
+  background:$loader-background;
+  backdrop-filter:blur(10px);
+  z-index:100;
+  top:0;
+  left:0;
   @include center;
-  position: fixed;
-
+  position:fixed;
   .loader {
-    width: 16.8rem;
-    height: 16.8rem;
+    width:16.8rem;
+    height:16.8rem;
   }
 }

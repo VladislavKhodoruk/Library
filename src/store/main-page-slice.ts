@@ -1,15 +1,19 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
 import { LoadingStatus } from 'entities/enums';
-
-import { Card } from '../entities/interfaces';
+import { MainPageState, Card } from '../entities/interfaces';
 
 import axios from './axios';
 
-interface MainPageState {
-  books: Card[];
-  loadingStatus: string;
-}
+const initialState: MainPageState = {
+  books: [],
+  loadingStatus: LoadingStatus.Default,
+  filtration: {
+    sortDirection: 'desc',
+    sortCategory: 'all',
+    searchingText: '',
+  },
+};
 
 export const fetchBooks = createAsyncThunk<Card[], undefined, { state: { mainPage: MainPageState } }>(
   'books/fetchBooks',
@@ -20,8 +24,8 @@ export const fetchBooks = createAsyncThunk<Card[], undefined, { state: { mainPag
   {
     condition: (_, { getState }) => {
       if (
-        getState().mainPage.loadingStatus === LoadingStatus.loading ||
-        getState().mainPage.loadingStatus === LoadingStatus.error
+        getState().mainPage.loadingStatus === LoadingStatus.Loading ||
+        getState().mainPage.loadingStatus === LoadingStatus.Error
       ) {
         return false;
       }
@@ -30,34 +34,31 @@ export const fetchBooks = createAsyncThunk<Card[], undefined, { state: { mainPag
   }
 );
 
-const initialState: MainPageState = {
-  books: [],
-  loadingStatus: LoadingStatus.default,
-};
-
 const mainPageSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    setDefaultLoadingStatus(state) {
-      state.loadingStatus = LoadingStatus.default;
+    setFiltration(state, action) {
+      state.filtration.sortDirection = action.payload.sortDirection;
+      state.filtration.sortCategory = action.payload.sortCategory;
+      state.filtration.searchingText = action.payload.searchingText;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (state) => {
-        state.loadingStatus = LoadingStatus.loading;
+        state.loadingStatus = LoadingStatus.Loading;
       })
       .addCase(fetchBooks.fulfilled, (state, action) => {
-        state.loadingStatus = LoadingStatus.loaded;
+        state.loadingStatus = LoadingStatus.Loaded;
         state.books = action.payload;
       })
       .addCase(fetchBooks.rejected, (state) => {
-        state.loadingStatus = LoadingStatus.error;
+        state.loadingStatus = LoadingStatus.Error;
       });
   },
 });
 
-export const { setDefaultLoadingStatus } = mainPageSlice.actions;
+export const { setFiltration } = mainPageSlice.actions;
 
 export default mainPageSlice.reducer;

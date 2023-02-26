@@ -1,5 +1,4 @@
 @import '../../scss/vars/variables.scss';
-
 .layout-main {
   display: flex;
   align-items: flex-start;
@@ -7,8 +6,8 @@
   width: 79.3rem;
   margin: 0 auto 4.4rem auto;
   flex: 1 0 auto;
-
   .outlet {
+    height: 100%;
     width: 100%;
   }
 }

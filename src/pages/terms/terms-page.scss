@@ -1,28 +1,25 @@
 @import '../../scss/vars/variables.scss';
 @import '../../scss/mixins.scss';
-
 .terms-page {
   h1 {
-    font: $header-font;
-    margin-bottom: 2.3rem;
+    font:$header-font;
+    margin-bottom:2.3rem;
   }
   ul {
     li {
-      margin-bottom: 2.3rem;
-
+      margin-bottom:2.3rem;
       h2 {
-        margin-bottom: 1.14rem;
-        font: $terms-font;
-        line-height: 1.7rem;
+        margin-bottom:1.14rem;
+        font:$terms-font;
+        line-height:1.7rem;
       }
-
       ul {
-        padding-left: 2.1rem;
+        padding-left:2.1rem;
         li,
         p {
-          margin-bottom: 1.14rem;
-          font: $font-l;
-          line-height: 1.7rem;
+          margin-bottom:1.14rem;
+          font:$font-l;
+          line-height:1.7rem;
         }
       }
     }

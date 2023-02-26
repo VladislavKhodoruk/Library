@@ -25,11 +25,11 @@ root.render(
                         <Route element={<LayoutMain />}>
                             <Route path='/' element={<Navigate to='/books/all' />} />
                             <Route path='/books' element={<Navigate to='/books/all' />} />
-                            <Route path='/books/:genreName' element={<MainPage />} />
+                            <Route path='/books/:category' element={<MainPage />} />
                             <Route path='/terms' element={<TermsPage page='terms' />} />
                             <Route path='/pact' element={<TermsPage page='contract' />} />
                         </Route>
-                        <Route path='/books/:genreName/:bookId' element={<BookPage />} />
+                        <Route path='/books/:category/:bookId' element={<BookPage />} />
                     </Route>
                 </Routes>
             </HashRouter>

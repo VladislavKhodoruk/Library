@@ -1,13 +1,11 @@
 @import '../../scss/vars/variables.scss';
 @import '../../scss/mixins.scss';
-
 .header {
   @include space-between;
   margin: 2.3rem auto 4.4rem auto;
   align-items: center;
   position: relative;
   width: 79.3rem;
-
   .menu-button {
     transition: 0.3s;
     padding: 0.5rem 0.2rem;
@@ -21,7 +19,6 @@
     background: none;
     margin-right: 1.7rem;
     position: relative;
-
     div {
       position: absolute;
       transition: 0.2s;
@@ -36,7 +33,6 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-
     div:nth-child(2) {
       top: calc(50% - 8px);
     }
@@ -44,28 +40,23 @@
       top: calc(50% + 8px);
     }
   }
-
   &-user {
     display: flex;
     align-items: center;
     gap: 1rem;
     font: $font-xl;
-
     img {
       height: 4.1rem;
       width: 4.1rem;
     }
   }
-
   &-right-part {
     width: 825px;
     @include space-between;
   }
-
   h1 {
     font: $header-font;
   }
-
   .nav-menu {
     background: $button-occupied-background;
     box-shadow: $grey-shadow;
@@ -73,12 +64,11 @@
     line-height: 1.42rem;
     position: absolute;
     top: calc(100% + 1.3rem);
-    left: -5%;
+    left: -10%;
     opacity: 0;
-    transition: 0.5s ease-in-out;
+    transition: 0.4s ease-in-out;
     pointer-events: none;
     z-index: 2;
-
     &-container {
       padding: 2.3rem;
       .sidebar {
@@ -87,7 +77,6 @@
         max-height: 100%;
         max-width: 100%;
         min-width: 100%;
-
         &-item {
           .docs-link {
             .hr {
@@ -96,12 +85,10 @@
           }
         }
       }
-
       &:first-child {
         margin-bottom: 1.4rem;
       }
     }
-
     > .hr {
       height: 1px;
       width: 100%;
@@ -109,54 +96,44 @@
     }
   }
 }
-
 .header.visible {
   .menu-button {
     transform: rotate(180deg);
-
     div {
       background: $orange;
     }
-
     div:nth-child(1) {
       transform: scaleX(0);
     }
-
     div:nth-child(2) {
       top: calc(50%);
       transform: translate(-50%, -50%) rotate(45deg);
     }
-
     div:nth-child(3) {
       top: calc(50%);
       transform: translate(-50%, -50%) rotate(-45deg);
     }
   }
-
   .nav-menu {
     opacity: 1;
     left: 0;
     pointer-events: auto;
-
     &-container {
       .sidebar {
         display: flex;
         transition: 0.5s;
       }
-
       .docs-link {
         p {
           font: $small-header-font;
           line-height: 2rem;
         }
-
         .hr {
           width: 100%;
           height: 1px;
           background: none;
           transform: rotate(180deg);
         }
-
         &:hover {
           background: $orange;
           -webkit-background-clip: text;
@@ -164,7 +141,6 @@
           background-clip: text;
         }
       }
-
       .docs-link.active {
         p {
           background: $orange;
@@ -172,14 +148,12 @@
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
-
         .hr {
           background: $orange;
         }
       }
     }
   }
-
   .bottom-buttons {
     @include column;
     gap: 3rem;

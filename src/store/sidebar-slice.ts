@@ -2,14 +2,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
 import { LoadingStatus } from 'entities/enums';
 
-import { Category } from '../entities/interfaces';
+import { Category, SidebarState } from '../entities/interfaces';
 
 import axios from './axios';
-
-interface SidebarState {
-  categories: Category[];
-  loadingStatus: string;
-}
 
 export const fetchCategories = createAsyncThunk<Category[], undefined, { state: { sidebar: SidebarState } }>(
   'categories/fetchCategories',
@@ -20,7 +15,7 @@ export const fetchCategories = createAsyncThunk<Category[], undefined, { state: 
   },
   {
     condition: (_, { getState }) => {
-      if (getState().sidebar.loadingStatus === LoadingStatus.loading) {
+      if (getState().sidebar.loadingStatus === LoadingStatus.Loading) {
         return false;
       }
 
@@ -31,26 +26,32 @@ export const fetchCategories = createAsyncThunk<Category[], undefined, { state: 
 
 const initialState: SidebarState = {
   categories: [],
-  loadingStatus: LoadingStatus.default,
+  loadingStatus: LoadingStatus.Default,
 };
 
 const sidebarSlice = createSlice({
   name: 'categories',
   initialState,
-  reducers: {},
+  reducers: {
+    setCategoriesDefaultLoadingStatus(state) {
+      state.loadingStatus = LoadingStatus.Default;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCategories.pending, (state) => {
-        state.loadingStatus = LoadingStatus.loading;
+        state.loadingStatus = LoadingStatus.Loading;
       })
       .addCase(fetchCategories.fulfilled, (state, action) => {
-        state.loadingStatus = LoadingStatus.loaded;
+        state.loadingStatus = LoadingStatus.Loaded;
         state.categories = action.payload;
       })
       .addCase(fetchCategories.rejected, (state) => {
-        state.loadingStatus = LoadingStatus.error;
+        state.loadingStatus = LoadingStatus.Error;
       });
   },
 });
+
+export const { setCategoriesDefaultLoadingStatus } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;

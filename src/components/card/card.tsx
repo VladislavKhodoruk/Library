@@ -1,41 +1,64 @@
+import { useCallback, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Card as CardInterface } from 'entities/interfaces';
-import { host } from 'entities/constants';
-
-import defaultImage from '../../assets/defaultImage.png'
+import { HOST } from 'entities/constants';
+import { ViewModes } from 'entities/enums';
 import { Button } from '../commons/button';
 import { Rating } from '../commons/rating';
 
-import { ViewModes } from './enums';
+import defaultImage from '../../assets/defaultImage.png'
 
 import './card.scss';
 
-export const Card = (props: { card: CardInterface, viewMode: string }) => (
-    <NavLink to={String(props.card.id)}>
-        {props.viewMode === ViewModes.Table ?
-            <div className='card-table' data-test-id='card'>
-                <div className='top'>
-                    <img src={props.card.image ? `${host}${props.card.image.url}` : defaultImage} alt='Book' />
-                    <Rating rating={props.card.rating} isSmooth={false} showWhenNull={false} />
-                </div>
-                <p className='middle'>{props.card.title}</p>
-                <div className='bottom'>
-                    <p>{props.card.authors?.join(', ')}, {props.card.issueYear}</p>
-                    <Button booking={props.card.booking} delivery={props.card.delivery} />
-                </div>
-            </div> :
-            <div className='card-list'>
-                <img src={props.card.image ? `${host}${props.card.image}` : defaultImage} alt='Book' />
-                <div className='right-part'>
+const Highlight = (props: { filter: any, str: any }) => {
+    if (!props.filter) return props.str;
+    const regExp = new RegExp(props.filter, 'ig');
+    const matchValue = props.str.match(regExp);
+    if (matchValue) {
+        return props.str.split(regExp).map((el: any, index: any, array: any) => {
+            if (index < array.length - 1) {
+                const c = matchValue.shift();
+                return <>{el}<span data-test-id='highlight-matches' className='highlighted'>{c}</span></>
+            }
+            return el;
+        })
+    }
+    return props.str;
+}
+
+export const Card = (props: { card: CardInterface, viewMode: string, searchingText: string }) => {
+
+    const highlight = useCallback((str: string) => {
+        return <Highlight filter={props.searchingText} str={str} />
+    }, [props.searchingText]);
+
+    return (
+        <NavLink to={String(props.card.id)}>
+            {props.viewMode === ViewModes.Table ?
+                <div className='card-table' data-test-id='card'>
                     <div className='top'>
-                        <p className='title'>{props.card.title}</p>
-                        <p className='author'>{props.card.authors?.join(', ')}, {props.card.issueYear}</p>
-                    </div>
-                    <div className='bottom'>
+                        <img src={props.card.image ? `${HOST}${props.card.image.url}` : defaultImage} alt='Book' />
                         <Rating rating={props.card.rating} isSmooth={false} showWhenNull={false} />
+                    </div>
+                    <p className='middle'>{highlight(props.card.title)}</p>
+                    <div className='bottom'>
+                        <p>{props.card.authors?.join(', ')}, {props.card.issueYear}</p>
                         <Button booking={props.card.booking} delivery={props.card.delivery} />
                     </div>
-                </div>
-            </div>}
-    </NavLink>
-);
+                </div> :
+                <div className='card-list'>
+                    <img src={props.card.image ? `${HOST}${props.card.image.url}` : defaultImage} alt='Book' />
+                    <div className='right-part'>
+                        <div className='top'>
+                            <p className='title'>{highlight(props.card.title)}</p>
+                            <p className='author'>{props.card.authors?.join(', ')}, {props.card.issueYear}</p>
+                        </div>
+                        <div className='bottom'>
+                            <Rating rating={props.card.rating} isSmooth={false} showWhenNull={false} />
+                            <Button booking={props.card.booking} delivery={props.card.delivery} />
+                        </div>
+                    </div>
+                </div>}
+        </NavLink>
+    )
+};

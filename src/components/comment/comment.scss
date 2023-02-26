@@ -1,25 +1,21 @@
 @import '../../scss/vars/variables.scss';
 @import '../../scss/mixins.scss';
-
 .comment {
   @include column;
-  gap: 1.1rem;
-  max-width: 52rem;
-
+  gap:1.1rem;
+  max-width:52rem;
   &-header {
-    display: flex;
-    align-items: center;
-    gap: 1.7rem;
-    line-height: 1.7rem;
-
+    display:flex;
+    align-items:center;
+    gap:1.7rem;
+    line-height:1.7rem;
     .text {
-      display: flex;
-      gap: 1.7rem;
+      display:flex;
+      gap:1.7rem;
     }
   }
-
   p {
-    font: $font-l;
-    line-height: 1.7rem;
+    font:$font-l;
+    line-height:1.7rem;
   }
 }
