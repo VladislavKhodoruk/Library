@@ -101,7 +101,7 @@ export const MainPage = () => {
                         <div className='books-container'>
                             <div className={classNames('topbar', { 'scaled': inputView })}>
                                 <div className='topbar-left'>
-                                    <div className='input-container'>
+                                    <div className={classNames('input-container', { 'search-button-hide': !inputView })}>
                                         <button
                                             data-test-id='button-search-open'
                                             type='button'

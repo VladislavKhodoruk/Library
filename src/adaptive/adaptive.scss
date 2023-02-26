@@ -268,6 +268,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            transition: 0.3s;
 
             .search-button {
               pointer-events: all;
@@ -279,6 +280,13 @@
 
             .close-button {
               display: flex;
+            }
+
+            &.search-button-hide {
+              padding: 0.57rem 0.57rem 0.57rem 1rem;
+              .search-button {
+                display: none;
+              }
             }
           }
 
