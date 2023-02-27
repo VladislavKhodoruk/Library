@@ -1,18 +1,14 @@
 @import '../../../scss/vars/variables.scss';
-
 .rating {
-  width: 10.3rem;
-
+  width:10.3rem;
   p {
-    font: $font-m;
+    font:$font-m;
   }
-
   .stars {
-    display: flex;
-    justify-content: space-between;
+    display:flex;
+    justify-content:space-between;
   }
-
   .star-filled * {
-    fill: #ffbc1f;
+    fill:#ffbc1f;
   }
 }

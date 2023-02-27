@@ -12,6 +12,10 @@ import './header.scss';
 export const Header = (props: HeaderProps) => {
     const [isMenuOpen, toggleMenu] = useState(false);
 
+    const linkIsCliсked = () => {
+        toggleMenu(false)
+    }
+
     const menu = useRef<HTMLInputElement>(null);
     const button = useRef<HTMLButtonElement>(null);
 
@@ -40,7 +44,7 @@ export const Header = (props: HeaderProps) => {
             </div>
             <div data-test-id='burger-navigation' className='nav-menu' ref={menu}>
                 <div className='nav-menu-container'>
-                    <Sidebar isBurger={true} />
+                    <Sidebar isBurger={true} linkIsCliсked={linkIsCliсked} />
                 </div>
                 <div className='hr' />
                 <div className='nav-menu-container bottom-buttons'>

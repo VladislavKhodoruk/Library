@@ -1,6 +1,5 @@
 @import '../../scss/vars/variables.scss';
 @import '../../scss/mixins.scss';
-
 .card-table {
   @include column;
   justify-content: space-between;
@@ -10,12 +9,10 @@
   border-radius: 0.7rem;
   background: $white;
   box-shadow: $grey-shadow;
-
   .top {
     @include column;
     gap: 1.1rem;
     width: 100%;
-
     img {
       max-width: 12.4rem;
       min-width: 12.4rem;
@@ -27,7 +24,6 @@
       border-radius: 10px;
     }
   }
-
   .middle {
     width: 100%;
     font: $font-xl;
@@ -36,8 +32,11 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
 
+    span.highlighted {
+      color: $pink;
+    }
+  }
   .bottom {
     @include column;
     justify-content: space-between;
@@ -46,7 +45,6 @@
     p {
       color: $light-black;
     }
-
     .button {
       margin: 0 auto;
     }
@@ -60,7 +58,6 @@
   border-radius: 0.85rem;
   background: $white;
   box-shadow: $grey-shadow;
-
   img {
     max-width: 8.57rem;
     min-width: 8.57rem;
@@ -68,12 +65,10 @@
     min-height: 12.1rem;
     border: 1px solid $grey;
   }
-
   .right-part {
     @include column;
     width: 100%;
     gap: 1.7rem;
-
     .top {
       .title {
         font: $font-xxl;
@@ -83,8 +78,11 @@
         display: -webkit-box;
         -webkit-box-orient: vertical;
         overflow: hidden;
-      }
 
+        span.highlighted {
+          color: $pink;
+        }
+      }
       .author {
         font: $font-l;
         line-height: 1.7rem;
@@ -95,12 +93,10 @@
         overflow: hidden;
       }
     }
-
     .bottom {
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       button {
         max-width: 12.4rem;
         min-width: 12.4rem;

@@ -1,1 +1,1 @@
-export const host = 'https://strapi.cleverland.by';
+export const HOST = 'https://strapi.cleverland.by';

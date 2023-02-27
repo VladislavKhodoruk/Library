@@ -1,16 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
 import { LoadingStatus } from 'entities/enums';
-import { Nullable } from 'entities/types';
 
-import { Book } from '../entities/interfaces';
+import { Book, BookPageState } from '../entities/interfaces';
 
 import axios from './axios';
-
-interface BookPageState {
-  book: Nullable<Book>;
-  loadingStatus: string;
-}
 
 export const fetchBook = createAsyncThunk<Book, string, { state: { bookPage: BookPageState } }>(
   'book/fetchBook',
@@ -20,7 +14,7 @@ export const fetchBook = createAsyncThunk<Book, string, { state: { bookPage: Boo
   },
   {
     condition: (_, { getState }) => {
-      if (getState().bookPage.loadingStatus === LoadingStatus.loading) {
+      if (getState().bookPage.loadingStatus === LoadingStatus.Loading) {
         return false;
       }
       return true;
@@ -30,7 +24,7 @@ export const fetchBook = createAsyncThunk<Book, string, { state: { bookPage: Boo
 
 const initialState: BookPageState = {
   book: null,
-  loadingStatus: LoadingStatus.default,
+  loadingStatus: LoadingStatus.Default,
 };
 
 const bookPageSlice = createSlice({
@@ -40,14 +34,14 @@ const bookPageSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchBook.pending, (state) => {
-        state.loadingStatus = LoadingStatus.loading;
+        state.loadingStatus = LoadingStatus.Loading;
       })
       .addCase(fetchBook.fulfilled, (state, action) => {
-        state.loadingStatus = LoadingStatus.loaded;
+        state.loadingStatus = LoadingStatus.Loaded;
         state.book = action.payload;
       })
       .addCase(fetchBook.rejected, (state) => {
-        state.loadingStatus = LoadingStatus.error;
+        state.loadingStatus = LoadingStatus.Error;
       });
   },
 });

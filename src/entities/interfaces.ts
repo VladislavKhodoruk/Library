@@ -1,5 +1,5 @@
-import { Nullable } from 'entities/types';
-
+import { SortDirection, Nullable } from 'entities/types';
+import { AllCategories } from './types';
 export interface Category {
   name: string;
   path: string;
@@ -17,7 +17,7 @@ export interface Card {
     url: string;
   }>;
   issueYear: Nullable<string>;
-  rating: Nullable<number>;
+  rating: number;
   title: string;
 }
 
@@ -82,4 +82,25 @@ export interface Delivery {
   recipientId: Nullable<number>;
   recipientFirstName: Nullable<string>;
   recipientLastName: Nullable<string>;
+}
+
+export interface Filtration {
+  sortDirection: SortDirection;
+  sortCategory: AllCategories;
+  searchingText: string;
+}
+
+export interface MainPageState {
+  books: Card[];
+  loadingStatus: string;
+  filtration: Filtration;
+}
+export interface SidebarState {
+  categories: Category[];
+  loadingStatus: string;
+}
+
+export interface BookPageState {
+  book: Nullable<Book>;
+  loadingStatus: string;
 }
