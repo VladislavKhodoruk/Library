@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Highlight } from 'components/highlight';
 import { Card as CardInterface } from 'entities/interfaces';
 import { HOST } from 'entities/constants';
 import { ViewModes } from 'entities/enums';
@@ -9,22 +10,6 @@ import { Rating } from '../commons/rating';
 import defaultImage from '../../assets/defaultImage.png'
 
 import './card.scss';
-
-const Highlight = (props: { filter: any, str: any }) => {
-    if (!props.filter) return props.str;
-    const regExp = new RegExp(props.filter, 'ig');
-    const matchValue = props.str.match(regExp);
-    if (matchValue) {
-        return props.str.split(regExp).map((el: any, index: any, array: any) => {
-            if (index < array.length - 1) {
-                const c = matchValue.shift();
-                return <>{el}<span data-test-id='highlight-matches' className='highlighted'>{c}</span></>
-            }
-            return el;
-        })
-    }
-    return props.str;
-}
 
 export const Card = (props: { card: CardInterface, viewMode: string, searchingText: string }) => {
 

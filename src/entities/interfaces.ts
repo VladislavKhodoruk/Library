@@ -104,3 +104,46 @@ export interface BookPageState {
   book: Nullable<Book>;
   loadingStatus: string;
 }
+
+export interface RegistrationPageState {
+  loadingStatus: string;
+  errorStatusCode: Nullable<number>;
+  errorMessage: Nullable<string>;
+}
+
+export interface RegistrationRequest {
+  email: string;
+  username: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+}
+
+export interface AuthorizationPageState {
+  loadingStatus: string;
+  errorStatusCode: Nullable<number>;
+  errorMessage: Nullable<string>;
+}
+
+export interface AuthorizationRequest {
+  identifier: string;
+  password: string;
+}
+
+export interface AuthorizationResponse {
+  jwt: string;
+  user: {
+    id: number;
+    username: string;
+    email: string;
+    provider: string;
+    confirmed: boolean;
+    blocked: boolean;
+    createdAt: string;
+    updatedAt: string;
+    firstName: string;
+    lastName: string;
+    phone: string;
+  };
+}

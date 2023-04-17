@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import { Sidebar } from '../../components/sidebar';
+import { Sidebar } from '../sidebar';
 
 import './layout-main.scss';
 

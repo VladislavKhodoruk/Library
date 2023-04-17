@@ -9,7 +9,9 @@ import axios from './axios';
 export const fetchCategories = createAsyncThunk<Category[], undefined, { state: { sidebar: SidebarState } }>(
   'categories/fetchCategories',
   async () => {
-    const response: AxiosResponse = await axios.get('/api/categories');
+    const response: AxiosResponse = await axios.get('/api/categories', {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    });
 
     return response.data;
   },
@@ -32,11 +34,7 @@ const initialState: SidebarState = {
 const sidebarSlice = createSlice({
   name: 'categories',
   initialState,
-  reducers: {
-    setCategoriesDefaultLoadingStatus(state) {
-      state.loadingStatus = LoadingStatus.Default;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCategories.pending, (state) => {
@@ -51,7 +49,5 @@ const sidebarSlice = createSlice({
       });
   },
 });
-
-export const { setCategoriesDefaultLoadingStatus } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;

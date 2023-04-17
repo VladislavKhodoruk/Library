@@ -147,7 +147,6 @@ export const MainPage = () => {
                                     <p data-test-id='empty-category' className='error-text'>{errorText}</p> :
                                     <p data-test-id='search-result-not-found' className='error-text'>{errorText}</p>
                                 }
-
                             </div> :
                                 <div className={cardsViewMode === ViewModes.Table ? 'table' : 'list'}>
                                     {books.map((card: Card) => <CardComponent key={card.id} card={card} viewMode={cardsViewMode} searchingText={inputValue} />)}
