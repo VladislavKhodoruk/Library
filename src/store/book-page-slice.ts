@@ -9,7 +9,9 @@ import axios from './axios';
 export const fetchBook = createAsyncThunk<Book, string, { state: { bookPage: BookPageState } }>(
   'book/fetchBook',
   async (id) => {
-    const response: AxiosResponse = await axios.get(`/api/books/${id}`);
+    const response: AxiosResponse = await axios.get(`/api/books/${id}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    });
     return response.data;
   },
   {

@@ -18,7 +18,9 @@ const initialState: MainPageState = {
 export const fetchBooks = createAsyncThunk<Card[], undefined, { state: { mainPage: MainPageState } }>(
   'books/fetchBooks',
   async () => {
-    const response: AxiosResponse = await axios.get('/api/books');
+    const response: AxiosResponse = await axios.get('/api/books', {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    });
     return response.data;
   },
   {

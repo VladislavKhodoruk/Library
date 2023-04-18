@@ -269,9 +269,16 @@
             align-items: center;
             justify-content: space-between;
             transition: 0.3s;
+            position: relative;
 
             .search-button {
               pointer-events: all;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background-color: $white;
+              padding: 0.57rem;
+              z-index: 1000000000;
             }
 
             input {
@@ -279,7 +286,7 @@
             }
 
             .close-button {
-              display: flex;
+              visibility: visible;
             }
 
             &.search-button-hide {
@@ -326,18 +333,18 @@
       .topbar.scaled {
         .topbar-left {
           .input-container {
-            width: 2.3rem;
-            height: 2.3rem;
-            padding: 0;
             display: flex;
             align-items: center;
             justify-content: flex-start;
+            gap: 0;
+            width: 2.3rem;
+            height: 2.3rem;
             .close-button {
               display: none;
             }
             input {
-              transform: scaleX(0);
-              display: none;
+              width: 0;
+              opacity: 0;
             }
           }
           .sort-button {

@@ -45,13 +45,15 @@
 
           .search-button {
             @include center;
+
             .search-icon.non-active * {
               fill: $grey;
             }
           }
 
           .close-button {
-            display: none;
+            animation: close-button 0.3s;
+            visibility: hidden;
           }
 
           input {
@@ -61,6 +63,7 @@
             caret-color: $orange-dark;
             outline: none;
             border: none;
+            transition: 0.3s;
             &::-webkit-input-placeholder {
               color: $grey;
             }
@@ -159,5 +162,19 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-row-gap: 1.1rem;
+  }
+}
+
+@keyframes close-button-show {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

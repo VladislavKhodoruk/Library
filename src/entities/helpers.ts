@@ -21,3 +21,41 @@ export const sortBooksByCategory = (books: Card[], category: string) => {
 export const searchBooksByTitle = (books: Card[], text: string) => {
   return books.filter((book: Card) => book.title.toLocaleLowerCase().includes(text.toLocaleLowerCase()));
 };
+
+export const loginValidator = (value: string) => {
+  const hasNumbers = /\d/.test(value);
+  const hasLatin = /^(?=.*[a-zA-Z])/.test(value);
+  let errorsString = '';
+
+  if (!hasNumbers) {
+    errorsString += ' цифры';
+  }
+  if (!hasLatin) {
+    errorsString += ' латинский алфавит';
+  }
+  if (errorsString.trim().length) {
+    return errorsString.trim();
+  }
+  return true;
+};
+
+export const passwordValidator = (value: string) => {
+  const enoughLength = /^(\w{8,})$/.test(value);
+  const hasNumbers = /\d/.test(value);
+  const hasCapitalizedLatin = /^(?=.*[A-Z])/.test(value);
+  let errorsString = '';
+
+  if (!enoughLength) {
+    errorsString += ' не менее 8 символов';
+  }
+  if (!hasNumbers) {
+    errorsString += ' цифрой';
+  }
+  if (!hasCapitalizedLatin) {
+    errorsString += ' заглавной буквой';
+  }
+  if (errorsString.trim().length) {
+    return errorsString.trim();
+  }
+  return true;
+};

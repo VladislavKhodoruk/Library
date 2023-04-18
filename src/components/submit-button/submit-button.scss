@@ -1,0 +1,23 @@
+@import '../../scss/vars/variables.scss';
+@import '../../scss/mixins.scss';
+
+.submit-button {
+  @include center;
+  height: 3.7rem;
+  width: 100%;
+  background: $orange;
+  color: $white;
+  font: $font-xl;
+  line-height: 150%;
+  letter-spacing: 0.2px;
+  border-radius: 2.1rem;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &.disabled {
+    background: $light-grey;
+    pointer-events: none;
+  }
+}
